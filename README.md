@@ -1,6 +1,4 @@
-<p align="center"><img width="500" height="500" src="./air.png"></p>
-
-<p align="center">(temporary logo)</p>
+<p align="center"><img width="420" height="420" src="./assets/logo-420px.png"></p>
 
 # 🜁 Luft
 
