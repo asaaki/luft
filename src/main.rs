@@ -37,13 +37,14 @@ fn main(args: Args) -> Result<(), Box<dyn Error>> {
 }
 
 fn privdrop() {
-    if nix::unistd::geteuid().is_root() {
-        privdrop::PrivDrop::default()
-            .chroot("/var/empty")
-            .user("nobody")
-            .apply()
-            .unwrap_or_else(|e| eprintln!("Failed to drop privileges: {}", e));
+    if !nix::unistd::geteuid().is_root() {
+        return;
     }
+    privdrop::PrivDrop::default()
+        .chroot("/var/empty")
+        .user("nobody")
+        .apply()
+        .unwrap_or_else(|e| eprintln!("Failed to drop privileges: {}", e));
 }
 
 async fn run_sensor_test(args: &Args) -> Co2Result<()> {
