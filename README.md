@@ -15,22 +15,26 @@ _Air Quality Monitoring and Reporting_
 - [Visuals](#visuals)
   - [Dashboard example (Grafana)](#dashboard-example-grafana)
 - [Prerequesites](#prerequesites)
+  - [Hardware](#hardware)
   - [rootfs on SSD via USB](#rootfs-on-ssd-via-usb)
   - [Packages](#packages)
   - [The CO₂ meter/monitor](#the-co2-metermonitor)
   - [OpenSSL](#openssl)
   - [InfluxDB](#influxdb)
   - [Grafana](#grafana)
-  - [(maybe) Waveshare e-Paper displays](#maybe-waveshare-e-paper-displays)
+  - [LCD](#lcd)
+  - [Waveshare e-Paper display](#waveshare-e-paper-display)
+- [Cross-compilation](#cross-compilation)
+  - [debootstrap 🐥](#debootstrap)
 - [TODOs](#todos)
 
 <!-- /code_chunk_output -->
 
 ## Goals
 
-- [ ] 🖥 Monitor carbon dioxide (CO₂) levels
+- [x] 🖥 Monitor carbon dioxide (CO₂) levels
 - [ ] 👀 Show (at least) current data on a connected display
-- [ ] 📝 Record data as timeseries
+- [x] 📝 Record data as timeseries
 - [ ] 🚪 Make timeseries data accessible
 
 ### Maybe or Maybe not
@@ -45,7 +49,21 @@ _Air Quality Monitoring and Reporting_
 
 ![](./dashboard-full.png)
 
+-----
+
 ## Prerequesites
+
+### Hardware
+
+- Raspberry Pi (model 3 or 4)
+  - model 4 preferred, has definitely better performance around USB,
+    plus you can bump up the RAM to 4 GB if you like
+- SSD + SATA-to-USB adapter; disk size: whatever your wallet allows
+- display, either LCD or e-paper (the latter I bought out of curiosity)
+- the CO2 monitor (details see below), otherwise you would need to guess the data 😉
+- 3D printer, so that you can build a nice and fitting case for the mess
+
+If you in CNC milling or carpentry, replace the 3D printer with your tools.
 
 ### rootfs on SSD via USB
 
@@ -60,13 +78,19 @@ Needed for later steps.
 
 ```sh
 sudo apt-get update
+
+# if you use the pi also as the compilation environment
 sudo apt-get install libusb-1.0-0-dev libssl-dev
+
+# if you compile somewhere else and only run the binary on the pi
+sudo apt-get install libusb-1.0-0 libssl
 ```
 
-If you do that already now, you can skip the steps below.
-
-Why? At one point some crate will ask for a native ssl implementation, which requires to be compiled from sources.
-libusb can be skipped if no e-ink/e-paper display will be used.
+Why?
+- At one point some crate will ask for a native (open)ssl implementation, which requires to be compiled from sources.
+  Might check in the future if I can still get to a pure Rust implementation.
+- libusb is a requirement for the CO2 monitor, which has only USB connection for convenience.
+  I tried to build with pure Rust hidapi/usb stuff, but didn't work.
 
 ### The CO₂ meter/monitor
 
@@ -159,7 +183,19 @@ sudo systemctl start grafana-server
 # change password after first login!
 ```
 
-### (maybe) Waveshare e-Paper displays
+### LCD
+
+Shop any decent 7 inch display, ideally with high resolution.
+
+The one I got: `GeeekPi 7 inch 1024x600 HDMI Screen LCD Display with Driver Board Monitor for Raspberry Pi`
+
+If you work with a Raspberry Pi 4, keep in mind to have a _Micro HDMI to HDMI_ adapter.
+
+No special software requirements, works like any usual computer display.
+
+### Waveshare e-Paper display
+
+Note: use only if LCD is not an option
 
 * Enable SPI support: run `sudo raspi-config` and enable it
   (this will modify the `/boot/config.txt` for you)
@@ -169,9 +205,40 @@ sudo systemctl start grafana-server
 * Use `https://github.com/asaaki/epd-waveshare`, branch: `epd7in5_v2`, if you have also a **version 2** 7.5" display,
   otherwise the regular crate `epd-waveshare` will do fine.
 
+-----
+
+## Cross-compilation
+
+Funnily enough the Raspberry Pi 3 and 4 are quite powerful for some Rust compilation.
+So you can build the software right on device.
+
+But maybe you do have a powerful machine and want to utilize it for builds and tests.
+(As long as no real hardware/peripherals/sensors are required.)
+
+If you want to read about my lost weekend: [Cross compilations fails](./CROSSCOMPILATIONFAILS.md)
+
+But more importantly, what does work?
+
+### debootstrap 🐥
+
+Bootstrap an debian rootfs for armv7 (in distro lingo called `armhf`).
+Install your native dependency development packages.
+Install Rust.
+Compile ahead.
+
+The folder `cross/` includes some scripts to semi automate this process.
+
+You want to consider a different location for the rootfs depending on your disks.
+If you have mixed system like me with spinning HDDs and SSDs, put/move the rootfs to an SSD for some more performance.
+
+**But most important note: To not run into the same qemu/ext4 issue, do not have it on an ext4 partition!**
+
+Spare some space on a disk and format it with btrfs, XFS, ZFS, or some other Linux supported filesystem.
+
 ## TODOs
 
 - [ ] Turn setup into a semi or fully automated script
+  - [x] Cross compilation on host: _For now very semi, but good enough for my use-case._
 - [ ] Build a case for the components
 - [ ] Deploy at work
 - [ ] Impress coworkers

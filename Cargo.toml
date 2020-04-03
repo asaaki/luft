@@ -1,0 +1,32 @@
+[package]
+name = "luft"
+version = "0.1.0"
+authors = ["Christoph Grabo <asaaki@mannaz.cc>"]
+homepage = "https://github.com/asaaki/luft"
+documentation = "https://github.com/asaaki/luft"
+repository = "https://github.com/asaaki/luft"
+# license = ""
+# license-file = ""
+maintenance = { status = "experimental" }
+edition = "2018"
+publish = false
+
+[profile.release]
+lto = true
+codegen-units = 1
+
+[dependencies]
+co2mon = "2.0"
+futures = "0.3"
+influxdb = { git = "https://github.com/Empty2k12/influxdb-rust/", features = ["chrono_timestamps"] }
+paw = "1.0"
+structopt = { version = "0.3", default-features = false, features = ["paw"] }
+tokio = { version = "0.2", features = ["full"] }
+privdrop = "0.3"
+nix = "0.16"
+# e-paper deps
+# embedded-graphics = "0.5"
+# profont = { git = "https://github.com/asaaki/profont", branch = "bump-eg-to-0-5" }
+# embedded-hal = { version = "0.2", features = ["unproven"] }
+# linux-embedded-hal = "0.3"
+# epd-waveshare = { git = "https://github.com/asaaki/epd-waveshare", branch = "epd7in5_v2", default-features = false, features = ["epd7in5_v2", "graphics"]}
