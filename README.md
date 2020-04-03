@@ -45,7 +45,7 @@ _Air Quality Monitoring and Reporting_
 
 ### Dashboard example (Grafana)
 
-![](./dashboard-full.png)
+![](./assets/dashboard-full.png)
 
 -----
 
@@ -200,8 +200,7 @@ Note: use only if LCD is not an option
   Check, if your user is also member of the group `spi`;
   if not run `sudo adduser <username> spi`
 
-* Use `https://github.com/asaaki/epd-waveshare`, branch: `epd7in5_v2`, if you have also a **version 2** 7.5" display,
-  otherwise the regular crate `epd-waveshare` will do fine.
+* Use the regular crate `epd-waveshare` if you have also a **version 2** 7.5" display (support was added)
 
 -----
 
