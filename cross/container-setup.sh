@@ -2,6 +2,7 @@
 set -xeuo pipefail
 
 # find other supported archs here: https://github.com/rust-lang/rustup#other-installation-methods
+# RUSTUP_INIT_URL=https://static.rust-lang.org/rustup/dist/aarch64-unknown-linux-gnueabihf/rustup-init
 RUSTUP_INIT_URL=https://static.rust-lang.org/rustup/dist/armv7-unknown-linux-gnueabihf/rustup-init
 
 apt-get update

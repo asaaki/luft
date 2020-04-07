@@ -18,9 +18,6 @@
 // };
 // use profont::ProFont24Point;
 
-
-
-
 // fn run_display_test() -> Result<(), io::Error> {
 //     let mut spi = Spidev::open("/dev/spidev0.0")?; //.expect("spidev directory");
 //     let options = SpidevOptions::new()

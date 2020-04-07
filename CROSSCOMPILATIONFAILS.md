@@ -1,5 +1,7 @@
 # Cross compilations fails ⚡️
 
+Work environment: PC with Arch Linux
+
 Cross compilations I tried, but failed for different reasons:
 
 - using native cargo or `cross` tool

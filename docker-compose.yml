@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  influxdb:
+    image: influxdb:1.7-alpine
+    ports:
+      - 8086:8086
+      - 2003:2003
+    volumes:
+      - ${PWD}/tmp:/var/lib/influxdb

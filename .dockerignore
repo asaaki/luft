@@ -1,0 +1,9 @@
+.syncthing*
+**/*.rs.bk
+/cross.failed
+/cross/*.lck
+/cross/arch*
+/cross/deb32
+/cross/rootfs
+/target
+/tmp

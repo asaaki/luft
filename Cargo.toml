@@ -7,23 +7,26 @@ documentation = "https://github.com/asaaki/luft"
 repository = "https://github.com/asaaki/luft"
 # license = ""
 # license-file = ""
-maintenance = { status = "experimental" }
 edition = "2018"
 publish = false
+
+[badges]
+maintenance = { status = "experimental" }
 
 [profile.release]
 lto = true
 codegen-units = 1
 
 [dependencies]
+chrono = "0.4"
 co2mon = "2.0"
 futures = "0.3"
-influxdb = { git = "https://github.com/Empty2k12/influxdb-rust/", features = ["chrono_timestamps"] }
+influxdb = { git = "https://github.com/Empty2k12/influxdb-rust/", features = ["derive"] }
 paw = "1.0"
 structopt = { version = "0.3", default-features = false, features = ["paw"] }
 tokio = { version = "0.2", features = ["full"] }
 privdrop = "0.3"
-nix = "0.16"
+nix = "0.17"
 # e-paper deps
 # embedded-graphics = "0.5"
 # profont = { git = "https://github.com/asaaki/profont", branch = "bump-eg-to-0-5" }
