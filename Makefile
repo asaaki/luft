@@ -33,5 +33,10 @@ stop-influxdb:
 init-influxdb:
 	docker-compose run influxdb influx -host influxdb -execute 'CREATE DATABASE test_co2'
 
+# last 60 seconds after make call
+# poor man's "high resolution" fix
+TS = $(shell echo $$((`date +%s` - 60))000000000 )
+
 check-influxdb:
-	docker-compose run influxdb influx -host influxdb -database test_co2 -execute 'SELECT co2,temperature,location FROM measurements2'
+	docker-compose run influxdb influx -host influxdb -database test_co2 -execute \
+		'SELECT co2,temperature,location FROM measurements2 WHERE time > $(TS)'
