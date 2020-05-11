@@ -34,4 +34,4 @@ nix = "0.17"
 # embedded-hal = { version = "0.2", features = ["unproven"] }
 # linux-embedded-hal = "0.3"
 # epd-waveshare = { git = "https://github.com/asaaki/epd-waveshare", branch = "epd7in5_v2", default-features = false, features = ["epd7in5_v2", "graphics"]}
-yyid = "0.2"
+yyid = "0.6"
