@@ -402,7 +402,7 @@ dependencies = [
 [[package]]
 name = "influxdb"
 version = "0.1.0"
-source = "git+https://github.com/Empty2k12/influxdb-rust/#10876c65cc848f4a831f11f4fefad5fb6abe31dd"
+source = "git+https://github.com/Empty2k12/influxdb-rust/#9c2f37c8c2c92b04789a731ba4a793de44d73614"
 dependencies = [
  "chrono 0.4.15 (registry+https://github.com/rust-lang/crates.io-index)",
  "failure 0.1.7 (registry+https://github.com/rust-lang/crates.io-index)",
