@@ -495,7 +495,7 @@ dependencies = [
  "futures",
  "futures-timer",
  "influxdb",
- "nix 0.19.0",
+ "nix",
  "paw",
  "privdrop",
  "structopt",
@@ -622,19 +622,6 @@ dependencies = [
  "cfg-if",
  "libc",
  "winapi 0.3.8",
-]
-
-[[package]]
-name = "nix"
-version = "0.16.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dd0eaf8df8bab402257e0a5c17a254e4cc1f72a93588a1ddfb5d356c801aa7cb"
-dependencies = [
- "bitflags",
- "cc",
- "cfg-if",
- "libc",
- "void",
 ]
 
 [[package]]
@@ -796,12 +783,12 @@ checksum = "74490b50b9fbe561ac330df47c08f3f33073d2d00c150f719147d7c54522fa1b"
 
 [[package]]
 name = "privdrop"
-version = "0.3.4"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "939fa7cbfef9c15c65cf2fb3ed57f3f2a14dca1757a556aa1ba4a7f998b2b479"
+checksum = "ebd4c2739642e70439d1c0d9545beec45c1e54128739b3cda29bf2c366028c87"
 dependencies = [
  "libc",
- "nix 0.16.1",
+ "nix",
 ]
 
 [[package]]
@@ -1333,12 +1320,6 @@ name = "version_check"
 version = "0.9.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "078775d0255232fb988e6fccf26ddc9d1ac274299aaedcedce21c6f72cc533ce"
-
-[[package]]
-name = "void"
-version = "1.0.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6a02e4885ed3bc0f2de90ea6dd45ebcbb66dacffe03547fadbb0eeae2770887d"
 
 [[package]]
 name = "want"
