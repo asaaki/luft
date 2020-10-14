@@ -26,7 +26,7 @@ influxdb = { git = "https://github.com/Empty2k12/influxdb-rust/", features = ["d
 paw = "1.0"
 structopt = { version = "0.3", default-features = false, features = ["paw"] }
 tokio = { version = "0.2", features = ["full"] }
-privdrop = "0.3"
+privdrop = "0.5"
 nix = "0.19"
 # e-paper deps
 # embedded-graphics = "0.5"
