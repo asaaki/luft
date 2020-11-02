@@ -406,8 +406,8 @@ dependencies = [
 
 [[package]]
 name = "influxdb"
-version = "0.1.0"
-source = "git+https://github.com/Empty2k12/influxdb-rust/#7e66d2f492031fc4e954b2ee77b46ab854f8f7a9"
+version = "0.2.0"
+source = "git+https://github.com/Empty2k12/influxdb-rust/#5d6241c48551768073615be670e1d411959c44bb"
 dependencies = [
  "chrono",
  "futures",
@@ -422,9 +422,9 @@ dependencies = [
 
 [[package]]
 name = "influxdb_derive"
-version = "0.1.0"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "40a1bad2298b111aa99a98141f7307cec2dab604ca8fa6bb3f2f8a389c6ec34a"
+checksum = "7c5d47f51d0c429e0b7e8ec463bd86a6875e71147d7a1378ff0db51915ebb98a"
 dependencies = [
  "proc-macro2",
  "quote",
