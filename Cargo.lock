@@ -811,8 +811,8 @@ checksum = "64e9829a50b42bb782c1df523f78d332fe371b10c661e78b7a3c34b0198e9fac"
 
 [[package]]
 name = "influxdb"
-version = "0.2.0"
-source = "git+https://github.com/Empty2k12/influxdb-rust/#cc8750a587c9ebea095e9eefc4b9d85769c19743"
+version = "0.3.0"
+source = "git+https://github.com/Empty2k12/influxdb-rust/#f9668a89b143e157eafcfeddc20846d77867e80b"
 dependencies = [
  "chrono",
  "futures",
@@ -827,9 +827,9 @@ dependencies = [
 
 [[package]]
 name = "influxdb_derive"
-version = "0.2.0"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7c5d47f51d0c429e0b7e8ec463bd86a6875e71147d7a1378ff0db51915ebb98a"
+checksum = "bd351b85d6d79b8b73bda7452d8d9ac7da8a392f8b9eb0a4780b373539fb1e6e"
 dependencies = [
  "proc-macro2",
  "quote",
