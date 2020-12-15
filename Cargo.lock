@@ -812,7 +812,7 @@ checksum = "64e9829a50b42bb782c1df523f78d332fe371b10c661e78b7a3c34b0198e9fac"
 [[package]]
 name = "influxdb"
 version = "0.3.0"
-source = "git+https://github.com/Empty2k12/influxdb-rust/#9cd527a297c7bb3f5b2243d017761284861e2ba6"
+source = "git+https://github.com/Empty2k12/influxdb-rust/#f176db5ef3d08d63ee51e2c2c6c87f52d883b9e8"
 dependencies = [
  "chrono",
  "futures",
