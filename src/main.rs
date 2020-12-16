@@ -9,7 +9,7 @@ mod utils;
 #[paw::main]
 fn main(args: structs::Args) -> Result<(), Box<dyn Error>> {
     utils::privdrop();
-    let mut rt = Runtime::new()?;
+    let rt = Runtime::new()?;
     rt.block_on(sensor::run_forever(&args))?;
     Ok(())
 }
