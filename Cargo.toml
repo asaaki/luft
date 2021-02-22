@@ -27,7 +27,7 @@ paw = "1.0"
 structopt = { version = "0.3", default-features = false, features = ["paw"] }
 tokio = { version = "1.2", features = ["full"] }
 privdrop = "0.5"
-nix = "0.19"
+nix = "0.20"
 # e-paper deps
 # embedded-graphics = "0.5"
 # profont = { git = "https://github.com/asaaki/profont", branch = "bump-eg-to-0-5" }
