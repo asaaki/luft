@@ -19,7 +19,7 @@ codegen-units = 1
 
 [dependencies]
 chrono = "0.4"
-co2mon = "2.0"
+co2mon = "2.1"
 futures = "0.3"
 futures-timer = "3.0"
 influxdb = { version = "0.4", features = ["derive"] }
